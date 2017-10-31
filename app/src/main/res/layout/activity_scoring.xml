@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mouseart.com.github.tabletennisscoring.ScoringActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/team_a_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:onClick="addOneForTeamA"
+            android:layout_weight="1"
+            android:text="0"
+            android:textSize="120sp" />
+
+        <Button
+            android:id="@+id/team_b_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:onClick="addOneForTeamB"
+            android:layout_weight="1"
+            android:text="0"
+            android:textSize="120sp" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
