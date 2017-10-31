@@ -33,9 +33,25 @@ public class ScoringActivity extends AppCompatActivity {
      */
     public void addOneForTeamA(View v) {
 
-        if (scoreTeamA <11 )
+        if ((scoreTeamA <10) && (scoreTeamB <= 10)) {
             scoreTeamA = scoreTeamA + 1;
-        displayForTeamA(scoreTeamA);
+            displayForTeamA(scoreTeamA);
+        } else if ((scoreTeamA == 10) && (scoreTeamB < 10)) {
+            scoreTeamA = scoreTeamA + 1;
+            displayForTeamA(scoreTeamA);
+            System.out.println("A获胜，结束本局比赛流程；");
+            //添加A获胜，结束本局比赛流程；
+        } else if ((scoreTeamA >= 10) && (scoreTeamB >= 10) && (Math.abs(scoreTeamA-scoreTeamB) < 1)) {
+            scoreTeamA = scoreTeamA + 1;
+            displayForTeamA(scoreTeamA);
+            System.out.println("换发球");
+            //添加换发球；
+        } else {
+            scoreTeamA = scoreTeamA + 1;
+            displayForTeamA(scoreTeamA);
+            System.out.println("A获胜，结束本局比赛流程；");
+            //添加A获胜，结束本局比赛流程；
+        }
     }
 
     /**
