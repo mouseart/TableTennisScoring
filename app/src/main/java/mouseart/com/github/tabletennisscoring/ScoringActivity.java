@@ -160,7 +160,7 @@ public class ScoringActivity extends AppCompatActivity {
         int result;
         if ((scoreA <= scoreLimit-1) && (scoreB <= scoreLimit-1)) {
             result=0;
-        } else if ((scoreA == scoreLimit) && (scoreB <= scoreLimit-1)) {
+        } else if ((scoreA == scoreLimit) && (scoreB < scoreLimit-1)) {
             result=1;
         } else if ((scoreA < scoreLimit-1) && (scoreB == scoreLimit)) {
             result=2;
