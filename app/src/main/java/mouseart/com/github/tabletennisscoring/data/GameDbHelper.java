@@ -6,15 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import static mouseart.com.github.tabletennisscoring.data.GameContract.GameEntry.GAMESETS_5;
 import static mouseart.com.github.tabletennisscoring.data.GameContract.GameEntry.SINGLESDOUBLES_SINGLE;
+import static mouseart.com.github.tabletennisscoring.data.GameLogDbHelper.DATABASE_NAME;
+import static mouseart.com.github.tabletennisscoring.data.GameLogDbHelper.DATABASE_VERSION;
 
 /**
  * Created by mouse on 2017/11/15.
  */
 
 public class GameDbHelper extends SQLiteOpenHelper {
-
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "TableTennis.db";
 
     private static final String TEXT_TYPE = " TEXT";
     private static final String INTEGER_TYPE = " INTEGER";
@@ -25,7 +24,7 @@ public class GameDbHelper extends SQLiteOpenHelper {
     private static final String COMMA_SEP = ",";
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + GameContract.GameEntry.TABLE_NAME + " (" +
-                    GameContract.GameEntry._ID + INTEGER_TYPE + PRIMARY_KEY + AUTOINCREMENT + COMMA_SEP +
+                    GameContract.GameEntry.COLUMN_GAME_ID + INTEGER_TYPE + PRIMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     GameContract.GameEntry.COLUMN_GAME_GAMETITLE + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     GameContract.GameEntry.COLUMN_GAME_GAMESTARTTIME + INTEGER_TYPE + NOT_NULL + COMMA_SEP +
                     GameContract.GameEntry.COLUMN_GAME_GAMEENDTIME + INTEGER_TYPE + COMMA_SEP +

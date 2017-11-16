@@ -21,7 +21,7 @@ public final class GameContract {
          */
         public static final String TABLE_NAME = "game";
 
-        public static final String _ID = BaseColumns._ID;
+        public static final String COLUMN_GAME_ID = BaseColumns._ID;
         public static final String COLUMN_GAME_GAMETITLE = "gameTitle";
         public static final String COLUMN_GAME_GAMESTARTTIME = "gameStartTime";
         public static final String COLUMN_GAME_GAMEENDTIME = "gameEndTime";
@@ -39,6 +39,7 @@ public final class GameContract {
          */
         public static final int SINGLESDOUBLES_SINGLE = 1;
         public static final int SINGLESDOUBLES_DOUBLES = 2;
+
         public static final int GAMESETS_3 = 3;
         public static final int GAMESETS_5 = 5;
         public static final int GAMESETS_7 = 7;

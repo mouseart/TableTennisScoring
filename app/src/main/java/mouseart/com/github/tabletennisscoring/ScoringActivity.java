@@ -6,6 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * ScoringActivity class
+ *
+ * @author Leon Feng
+ * @date 2017/11/16
+ */
 public class ScoringActivity extends AppCompatActivity {
 
 
@@ -40,10 +46,15 @@ public class ScoringActivity extends AppCompatActivity {
     private void displayForTeamStatus(int scoreA, int scoreB, int roundsNumber) {
         if ((scoreA <= scoreLimit-1) && (scoreB <= scoreLimit-1)){
 
-            if (((roundsNumber % 4) == 1) || ((roundsNumber % 4) == 2))
+            if (((roundsNumber % 4) == 1) || ((roundsNumber % 4) == 2)) {
                 servingSideTeamA = true;
-            else
+                return;
+            }
+
+            else {
                 servingSideTeamA = false;
+            }
+
         } else {
             servingSideTeamA = !servingSideTeamA;
         }
