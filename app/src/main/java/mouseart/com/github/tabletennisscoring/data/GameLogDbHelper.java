@@ -21,7 +21,7 @@ public class GameLogDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + GameLogContract.GameLogEntry.TABLE_NAME + " (" +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_ID + INTEGER_TYPE + PRIMARY_KEY + AUTOINCREMENT + COMMA_SEP +
-                    GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMEID + TEXT_TYPE + NOT_NULL + COMMA_SEP +
+                    GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMEID + INTEGER_TYPE + NOT_NULL + COMMA_SEP +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_EVENTTIME + INTEGER_TYPE + NOT_NULL + COMMA_SEP +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_EVENTTYPE + INTEGER_TYPE + COMMA_SEP +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMESCORE + TEXT_TYPE + " )";

@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/database_view_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="database view"
+            />
+
 
         <Button
             android:id="@+id/team_a_score"
