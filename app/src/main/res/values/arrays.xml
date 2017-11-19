@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- These are the options displayed in the gender drop-down Spinner -->
+    <string-array name="array_gameSets_options">
+        <item>@string/gameSet_3</item>
+        <item>@string/gameSet_5</item>
+        <item>@string/gameSet_7</item>
+    </string-array>
+</resources>

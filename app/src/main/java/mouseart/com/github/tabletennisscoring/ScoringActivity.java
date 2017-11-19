@@ -18,7 +18,7 @@ import static android.text.style.TtsSpan.GENDER_MALE;
 
 /**
  * ScoringActivity class
- *
+ * 计分界面
  * @author Leon Feng
  * @date 2017/11/16
  */

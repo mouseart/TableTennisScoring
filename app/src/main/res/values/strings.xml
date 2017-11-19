@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Table Tennis Scoring</string>
+
+    <string name="category_TeamRed">红方</string>
+    <string name="category_TeamBlue">蓝方</string>
+
+    <string name="hint_teamA_name">红方</string>
+    <string name="hint_teamB_name">蓝方</string>
+
+    <string name="category_gameSets">赛制</string>
+
+    <string name="button_startGame">开始比赛</string>
+
+    <string name="gameSet_3">三局两胜</string>
+    <string name="gameSet_5">五局三胜</string>
+    <string name="gameSet_7">七局四胜</string>
+
+
 </resources>
