@@ -15,5 +15,9 @@
     <string name="gameSet_5">五局三胜</string>
     <string name="gameSet_7">七局四胜</string>
 
+    <string name="action_delete">重置数据库</string>
+
+
+
 
 </resources>

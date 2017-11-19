@@ -12,7 +12,7 @@
         <activity android:name=".ScoringActivity">
         </activity>
 
-        <activity android:name=".StartNewGame">
+        <activity android:name=".StartNewGameActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

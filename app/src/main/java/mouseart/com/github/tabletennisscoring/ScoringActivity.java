@@ -13,6 +13,7 @@ import java.util.Date;
 
 import mouseart.com.github.tabletennisscoring.data.GameLogContract;
 import mouseart.com.github.tabletennisscoring.data.GameLogDbHelper;
+import mouseart.com.github.tabletennisscoring.data.GameLogDao;
 
 import static android.text.style.TtsSpan.GENDER_MALE;
 
@@ -57,6 +58,7 @@ public class ScoringActivity extends AppCompatActivity {
     //初始化比赛得分；
     String gameScore=gameNumber+"-"+scoreTeamA+":"+scoreTeamB+"-"+scoreAllA+":"+scoreAllB;
 
+    GameLogDao mGameLogDao = new GameLogDao(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,13 +73,15 @@ public class ScoringActivity extends AppCompatActivity {
             //TeamB发球开局
             eventType=121;
         }
-        insertData(gameId,eventType,gameScore);
+        mGameLogDao.insertData(gameId,eventType,gameScore);
         displayDatabaseInfo();
 
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
         displayForTeamStatus(scoreTeamA, scoreTeamB, rounds);
     }
+
+
 
     /**
      * 显示团队名字和哪方发球的状态
@@ -101,7 +105,7 @@ public class ScoringActivity extends AppCompatActivity {
 
             //写入发球日志
             eventType=211;
-            insertData(gameId,eventType,gameScore);
+            mGameLogDao.insertData(gameId,eventType,gameScore);
             displayDatabaseInfo();
         } else {
             displayForTeamViewA("TeamAName");
@@ -109,7 +113,7 @@ public class ScoringActivity extends AppCompatActivity {
 
             //写入发球日志
             eventType=221;
-            insertData(gameId,eventType,gameScore);
+            mGameLogDao.insertData(gameId,eventType,gameScore);
             displayDatabaseInfo();
         }
 
@@ -164,7 +168,7 @@ public class ScoringActivity extends AppCompatActivity {
 
         //写入TeamA得分日志
         eventType=311;
-        insertData(gameId,eventType,gameScore);
+        mGameLogDao.insertData(gameId,eventType,gameScore);
         displayDatabaseInfo();
 
         switch (tableTennisScoreJudgment(scoreTeamA, scoreTeamB)) {
@@ -182,7 +186,7 @@ public class ScoringActivity extends AppCompatActivity {
                 displayForTeamViewB("TeamBName ");
                 //写入TeamA获得本回合胜利日志
                 eventType=411;
-                insertData(gameId,eventType,gameScore);
+                mGameLogDao.insertData(gameId,eventType,gameScore);
                 displayDatabaseInfo();
 
             default:
@@ -199,7 +203,7 @@ public class ScoringActivity extends AppCompatActivity {
         scoreTeamB = scoreTeamB + 1;
         //写入TeamB得分日志
         eventType=321;
-        insertData(gameId,eventType,gameScore);
+        mGameLogDao.insertData(gameId,eventType,gameScore);
         displayDatabaseInfo();
         switch (tableTennisScoreJudgment(scoreTeamA, scoreTeamB)) {
             case 0:
@@ -216,7 +220,7 @@ public class ScoringActivity extends AppCompatActivity {
                 displayForTeamViewB("TeamBName 获得本回合胜利！");
                 //写入TeamB获得本回合胜利日志
                 eventType=421;
-                insertData(gameId,eventType,gameScore);
+                mGameLogDao.insertData(gameId,eventType,gameScore);
                 displayDatabaseInfo();
 
             default:
@@ -253,7 +257,7 @@ public class ScoringActivity extends AppCompatActivity {
     /**
      * 向gameLog写入日志
      */
-    private void insertData(int gameId,int eventType, String gameScore) {
+/*    private void insertData(int gameId,int eventType, String gameScore) {
 
         GameLogDbHelper mDbHelper = new GameLogDbHelper(this);
         // Gets the data repository in write mode
@@ -269,7 +273,7 @@ public class ScoringActivity extends AppCompatActivity {
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(GameLogContract.GameLogEntry.TABLE_NAME, null, values);
 
-    }
+    }*/
 
 
 
