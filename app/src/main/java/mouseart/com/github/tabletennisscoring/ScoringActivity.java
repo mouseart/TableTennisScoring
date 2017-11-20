@@ -16,6 +16,10 @@ import mouseart.com.github.tabletennisscoring.data.GameLogDbHelper;
 import mouseart.com.github.tabletennisscoring.data.GameLogDao;
 
 import static android.text.style.TtsSpan.GENDER_MALE;
+import static mouseart.com.github.tabletennisscoring.StartNewGameActivity.gameNumber;
+import static mouseart.com.github.tabletennisscoring.StartNewGameActivity.scoreAllA;
+import static mouseart.com.github.tabletennisscoring.StartNewGameActivity.scoreAllB;
+import static mouseart.com.github.tabletennisscoring.StartNewGameActivity.scoreLimit;
 
 /**
  * ScoringActivity class
@@ -24,14 +28,6 @@ import static android.text.style.TtsSpan.GENDER_MALE;
  * @date 2017/11/16
  */
 public class ScoringActivity extends AppCompatActivity {
-
-    //当前是第几局
-    public int gameNumber = 1;
-
-    //TeamA的总分
-    public int scoreAllA = 0;
-    //TeamB的总分
-    public int scoreAllB = 0;
 
     //TeamA的得分
     public int scoreTeamA = 0;
@@ -44,8 +40,6 @@ public class ScoringActivity extends AppCompatActivity {
     //回合数量累计
     public int rounds = 1;
 
-    //回合上限初始默认每回合11局；
-    public static int scoreLimit = 11;
 
     // 获得开局时间
     long timecurrentTimeMillis = System.currentTimeMillis();
@@ -56,7 +50,7 @@ public class ScoringActivity extends AppCompatActivity {
     int eventType = 0;
 
     //初始化比赛得分；
-    String gameScore=gameNumber+"-"+scoreTeamA+":"+scoreTeamB+"-"+scoreAllA+":"+scoreAllB;
+    String gameScore= gameNumber+"-"+scoreTeamA+":"+scoreTeamB+"-"+scoreAllA+":"+scoreAllB;
 
     GameLogDao mGameLogDao = new GameLogDao(this);
 
@@ -253,28 +247,6 @@ public class ScoringActivity extends AppCompatActivity {
         }
         return result;
     }
-
-    /**
-     * 向gameLog写入日志
-     */
-/*    private void insertData(int gameId,int eventType, String gameScore) {
-
-        GameLogDbHelper mDbHelper = new GameLogDbHelper(this);
-        // Gets the data repository in write mode
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-
-        // Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put(GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMEID, gameId);
-        values.put(GameLogContract.GameLogEntry.COLUMN_GAMELOG_EVENTTIME, System.currentTimeMillis());
-        values.put(GameLogContract.GameLogEntry.COLUMN_GAMELOG_EVENTTYPE, eventType);
-        values.put(GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMESCORE, gameScore);
-
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId = db.insert(GameLogContract.GameLogEntry.TABLE_NAME, null, values);
-
-    }*/
-
 
 
     /**

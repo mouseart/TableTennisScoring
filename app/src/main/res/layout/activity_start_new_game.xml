@@ -103,5 +103,12 @@
         android:text="@string/button_startGame"
         />
 
+    <TextView
+        android:id="@+id/game_database_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="database view"
+        />
+
 
 </LinearLayout>
