@@ -90,7 +90,7 @@ public class GameLogDao {
             values.put(GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMESCORE, gameScore);
 
             // Insert the new row, returning the primary key value of the new row
-            long newRowId = db.insert(GameLogContract.GameLogEntry.TABLE_NAME, null, values);
+            db.insert(GameLogContract.GameLogEntry.TABLE_NAME, null, values);
 
             db.setTransactionSuccessful();
             return true;

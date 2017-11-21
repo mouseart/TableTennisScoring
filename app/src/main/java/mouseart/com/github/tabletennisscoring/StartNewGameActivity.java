@@ -123,10 +123,10 @@ public class StartNewGameActivity extends AppCompatActivity {
 
                 //写日志
 
-                int gameId = mGameDao.returnLastId();
+                /*int gameId = mGameDao.returnLastId();
                 int eventType = mGameSets;
 
-                mGameLogDao.insertData(gameId, eventType, gameScore);
+                mGameLogDao.insertData(gameId, eventType, gameScore);*/
 
 
                 //跳转到下一个Activity

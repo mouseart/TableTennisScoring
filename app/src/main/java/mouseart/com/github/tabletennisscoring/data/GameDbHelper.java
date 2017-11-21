@@ -6,8 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import static mouseart.com.github.tabletennisscoring.data.GameContract.GameEntry.GAMESETS_5;
 import static mouseart.com.github.tabletennisscoring.data.GameContract.GameEntry.SINGLESDOUBLES_SINGLE;
-import static mouseart.com.github.tabletennisscoring.data.GameLogDbHelper.DATABASE_NAME;
-import static mouseart.com.github.tabletennisscoring.data.GameLogDbHelper.DATABASE_VERSION;
+
 
 /**
  * Created by mouse on 2017/11/15.
@@ -15,7 +14,7 @@ import static mouseart.com.github.tabletennisscoring.data.GameLogDbHelper.DATABA
 
 public class GameDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "TableTennis.db";
 
     private static final String TEXT_TYPE = " TEXT";

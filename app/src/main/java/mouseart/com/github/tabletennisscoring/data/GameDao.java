@@ -63,7 +63,7 @@ public class GameDao {
             values.put(GameContract.GameEntry.COLUMN_GAME_GAMESETS,mGameSets);
 
             // Insert the new row, returning the primary key value of the new row
-            long newRowId = db.insert(GameContract.GameEntry.TABLE_NAME, null, values);
+            db.insert(GameContract.GameEntry.TABLE_NAME, null, values);
 
             db.setTransactionSuccessful();
             return true;

@@ -67,8 +67,8 @@ public class ScoringActivity extends AppCompatActivity {
             //TeamB发球开局
             eventType=121;
         }
-        mGameLogDao.insertData(gameId,eventType,gameScore);
-        displayDatabaseInfo();
+        /*mGameLogDao.insertData(gameId,eventType,gameScore);
+        displayDatabaseInfo();*/
 
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
@@ -98,17 +98,17 @@ public class ScoringActivity extends AppCompatActivity {
             displayForTeamViewB("TeamBName ");
 
             //写入发球日志
-            eventType=211;
+            /*eventType=211;
             mGameLogDao.insertData(gameId,eventType,gameScore);
-            displayDatabaseInfo();
+            displayDatabaseInfo();*/
         } else {
             displayForTeamViewA("TeamAName");
             displayForTeamViewB("TeamBName 发球");
 
             //写入发球日志
-            eventType=221;
+            /*eventType=221;
             mGameLogDao.insertData(gameId,eventType,gameScore);
-            displayDatabaseInfo();
+            displayDatabaseInfo();*/
         }
 
     }
@@ -161,9 +161,9 @@ public class ScoringActivity extends AppCompatActivity {
         scoreTeamA = scoreTeamA + 1;
 
         //写入TeamA得分日志
-        eventType=311;
+        /*eventType=311;
         mGameLogDao.insertData(gameId,eventType,gameScore);
-        displayDatabaseInfo();
+        displayDatabaseInfo();*/
 
         switch (tableTennisScoreJudgment(scoreTeamA, scoreTeamB)) {
             case 0:
@@ -178,10 +178,11 @@ public class ScoringActivity extends AppCompatActivity {
                 rounds++;
                 displayForTeamViewA("TeamAName 获得本回合胜利！");
                 displayForTeamViewB("TeamBName ");
+
                 //写入TeamA获得本回合胜利日志
-                eventType=411;
+                /*eventType=411;
                 mGameLogDao.insertData(gameId,eventType,gameScore);
-                displayDatabaseInfo();
+                displayDatabaseInfo();*/
 
             default:
                 System.out.println("返回结果错误！");
@@ -195,10 +196,11 @@ public class ScoringActivity extends AppCompatActivity {
      */
     public void addOneForTeamB(View v) {
         scoreTeamB = scoreTeamB + 1;
+
         //写入TeamB得分日志
-        eventType=321;
-        mGameLogDao.insertData(gameId,eventType,gameScore);
-        displayDatabaseInfo();
+        /*eventType=321;
+        mGameLogDao.insertData(gameId,eventType,gameScore);*/
+        // displayDatabaseInfo();
         switch (tableTennisScoreJudgment(scoreTeamA, scoreTeamB)) {
             case 0:
                 System.out.println("B+1比赛继续");
@@ -213,9 +215,9 @@ public class ScoringActivity extends AppCompatActivity {
                 displayForTeamViewA("TeamAName ");
                 displayForTeamViewB("TeamBName 获得本回合胜利！");
                 //写入TeamB获得本回合胜利日志
-                eventType=421;
+                /*eventType=421;
                 mGameLogDao.insertData(gameId,eventType,gameScore);
-                displayDatabaseInfo();
+                displayDatabaseInfo();*/
 
             default:
                 System.out.println("返回结果错误！");
