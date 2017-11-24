@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mouseart.com.github.tabletennisscoring.NextGameActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/fab_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="TeamA" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="TeamB" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/fab_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
+                android:background="@color/colorRedTeam"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
+                android:background="@color/colorBlueTeam"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Score_per_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/fab_margin"
+            android:paddingVertical="@dimen/activity_small_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="第 1 局"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="0"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/fab_margin"
+            android:paddingVertical="@dimen/activity_small_margin">
+
+            <Button
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="开始第n局">
+
+
+            </Button>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
