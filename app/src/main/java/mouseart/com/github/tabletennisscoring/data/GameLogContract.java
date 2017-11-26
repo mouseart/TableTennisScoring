@@ -19,7 +19,7 @@ public class GameLogContract {
         /**
          * Name of database table for game
          */
-        public static final String TABLE_NAME = "gameLog";
+        public static final String TABLE_GAMELOG_NAME = "gameLog";
 
         public static final String COLUMN_GAMELOG_ID = BaseColumns._ID;
         public static final String COLUMN_GAMELOG_GAMEID = "gameID";

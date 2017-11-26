@@ -49,7 +49,7 @@ public class GameLogDao {
         try {
 
             // select count(Id) from Orders
-            cursor = db.query(GameLogContract.GameLogEntry.TABLE_NAME, new String[]{"COUNT(Id)"}, null, null, null, null, null);
+            cursor = db.query(GameLogContract.GameLogEntry.TABLE_GAMELOG_NAME, new String[]{"COUNT(Id)"}, null, null, null, null, null);
 
             if (cursor.moveToFirst()) {
                 count = cursor.getInt(0);
@@ -90,7 +90,7 @@ public class GameLogDao {
             values.put(GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMESCORE, gameScore);
 
             // Insert the new row, returning the primary key value of the new row
-            db.insert(GameLogContract.GameLogEntry.TABLE_NAME, null, values);
+            db.insert(GameLogContract.GameLogEntry.TABLE_GAMELOG_NAME, null, values);
 
             db.setTransactionSuccessful();
             return true;

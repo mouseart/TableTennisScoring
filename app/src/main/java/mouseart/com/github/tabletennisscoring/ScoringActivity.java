@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.Date;
 
+import mouseart.com.github.tabletennisscoring.data.GameDao;
 import mouseart.com.github.tabletennisscoring.data.GameLogContract;
 import mouseart.com.github.tabletennisscoring.data.GameLogDbHelper;
 import mouseart.com.github.tabletennisscoring.data.GameLogDao;
@@ -57,6 +58,7 @@ public class ScoringActivity extends AppCompatActivity {
     //初始化比赛得分；
     String gameScore= gameNumber+"-"+scoreTeamA+":"+scoreTeamB+"-"+scoreAllA+":"+scoreAllB;
 
+    GameDao mGameDao = new GameDao(this);
     GameLogDao mGameLogDao = new GameLogDao(this);
 
     @Override
@@ -182,6 +184,7 @@ public class ScoringActivity extends AppCompatActivity {
                 displayForTeamA(scoreTeamA);
                 rounds++;
                 scoreAllA++;
+                mGameDao.updateGameScoreAll(scoreAllA,scoreAllB);
                 displayForTeamViewA("TeamAName 获得本回合胜利！");
                 displayForTeamViewB("TeamBName ");
 
@@ -224,6 +227,7 @@ public class ScoringActivity extends AppCompatActivity {
                 displayForTeamB(scoreTeamB);
                 rounds++;
                 scoreAllB++;
+                mGameDao.updateGameScoreAll(scoreAllA,scoreAllB);
                 displayForTeamViewA("TeamAName ");
                 displayForTeamViewB("TeamBName 获得本回合胜利！");
 
@@ -241,6 +245,7 @@ public class ScoringActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
 
     /**
@@ -284,7 +289,7 @@ public class ScoringActivity extends AppCompatActivity {
         // 获得表 gameLog 的所有内容
         /*Cursor cursor = db.rawQuery("SELECT * FROM " + GameLogContract.GameLogEntry.TABLE_NAME, null);*/
         Cursor cursor = db.query(
-                GameLogContract.GameLogEntry.TABLE_NAME,
+                GameLogContract.GameLogEntry.TABLE_GAMELOG_NAME,
                 null,                               // The columns to return
                 null,                                // The columns for the WHERE clause
                 null,                            // The values for the WHERE clause

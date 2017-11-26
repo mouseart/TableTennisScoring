@@ -24,7 +24,7 @@ public class GameLogDbHelper extends SQLiteOpenHelper {
     private static final String NOT_NULL = " NOT NULL";
     private static final String COMMA_SEP = ",";
     private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + GameLogContract.GameLogEntry.TABLE_NAME + " (" +
+            "CREATE TABLE " + GameLogContract.GameLogEntry.TABLE_GAMELOG_NAME + " (" +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_ID + INTEGER_TYPE + PRIMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMEID + INTEGER_TYPE + NOT_NULL + COMMA_SEP +
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_EVENTTIME + INTEGER_TYPE + NOT_NULL + COMMA_SEP +
@@ -32,7 +32,7 @@ public class GameLogDbHelper extends SQLiteOpenHelper {
                     GameLogContract.GameLogEntry.COLUMN_GAMELOG_GAMESCORE + TEXT_TYPE + " )";
 
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + GameLogContract.GameLogEntry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + GameLogContract.GameLogEntry.TABLE_GAMELOG_NAME;
 
     //SQLiteOpenHelper子类必须要的一个构造函数
     public GameLogDbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -59,19 +59,15 @@ public class GameLogDbHelper extends SQLiteOpenHelper {
 
     }
 
-    //回调函数，当你构造DBHelper的传递的Version与之前的Version调用此函数
+
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        System.out.println("update Database");
-
-    }
-
-/*    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        //如果旧表存在，删除，所以数据将会消失
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
+        //再次创建新的表
         onCreate(sqLiteDatabase);
 
-    }*/
+    }
 
     //关闭数据库
     public void close(){

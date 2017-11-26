@@ -1,6 +1,5 @@
 package mouseart.com.github.tabletennisscoring;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,10 +20,8 @@ import android.widget.TextView;
 import mouseart.com.github.tabletennisscoring.data.GameContract;
 import mouseart.com.github.tabletennisscoring.data.GameDao;
 import mouseart.com.github.tabletennisscoring.data.GameDbHelper;
-import mouseart.com.github.tabletennisscoring.data.GameListAdapter;
-import mouseart.com.github.tabletennisscoring.data.GameLogContract;
 import mouseart.com.github.tabletennisscoring.data.GameLogDao;
-import mouseart.com.github.tabletennisscoring.data.GameLogDbHelper;
+import mouseart.com.github.tabletennisscoring.data.NowGameApplication;
 
 /**
  * StartNewGameActivity class
@@ -95,6 +92,10 @@ public class StartNewGameActivity extends AppCompatActivity {
     private int mGameSets = GameContract.GameEntry.GAMESETS_5;
 
     GameDao mGameDao = new GameDao(this);
+    private NowGameApplication mNowGameApplication ;
+
+
+
     GameLogDao mGameLogDao = new GameLogDao(this);
 
     @Override
@@ -121,6 +122,7 @@ public class StartNewGameActivity extends AppCompatActivity {
                 mGameDao.insertNewGame(mTeamAplayer1Id, mTeamBplayer1Id, mSinglesDoubles, mGameSets);
                 displayDatabaseInfo();
 
+                mNowGameApplication.setNowGameID(mGameDao.returnLastId());
                 //写日志
 
                 /*int gameId = mGameDao.returnLastId();
@@ -227,7 +229,7 @@ public class StartNewGameActivity extends AppCompatActivity {
         // 获得表 gameLog 的所有内容
         /*Cursor cursor = db.rawQuery("SELECT * FROM " + GameContract.GameEntry.TABLE_NAME, null);*/
         Cursor cursor = db.query(
-                GameContract.GameEntry.TABLE_NAME,
+                GameContract.GameEntry.TABLE_GAME_NAME,
                 null,                               // The columns to return
                 null,                                // The columns for the WHERE clause
                 null,                            // The values for the WHERE clause
@@ -251,8 +253,7 @@ public class StartNewGameActivity extends AppCompatActivity {
             int teamBPlayerId2ColumnIndex = cursor.getColumnIndex(GameContract.GameEntry.COLUMN_GAME_TEAMBPLAYERID2);
             int singlesDoublesColumnIndex = cursor.getColumnIndex(GameContract.GameEntry.COLUMN_GAME_SINGLESDOUBLES);
             int gameSetsColumnIndex = cursor.getColumnIndex(GameContract.GameEntry.COLUMN_GAME_GAMESETS);
-            int gameScoreABColumnIndex = cursor.getColumnIndex(GameContract.GameEntry.COLUMN_GAME_GAMESCOREAB);
-            int aggregateScoreColumnIndex = cursor.getColumnIndex(GameContract.GameEntry.COLUMN_GAME_AGGREGATESCORE);
+
 
             cursor.moveToLast();
             int currentID = cursor.getInt(gameIdColumnIndex);
@@ -265,8 +266,7 @@ public class StartNewGameActivity extends AppCompatActivity {
             int currentTeamBPlayerId2 = cursor.getInt(teamBPlayerId2ColumnIndex);
             int currentSinglesDoubles = cursor.getInt(singlesDoublesColumnIndex);
             int currentGameSets = cursor.getInt(gameSetsColumnIndex);
-            String currentGameScoreAB = cursor.getString(gameScoreABColumnIndex);
-            String currentAggregateScore = cursor.getString(aggregateScoreColumnIndex);
+
 
             displayView.append(currentID + " - " +
                     currentGameTitle + " - " +
@@ -277,9 +277,7 @@ public class StartNewGameActivity extends AppCompatActivity {
                     currentTeamBPlayerId1 + " - " +
                     currentTeamBPlayerId2 + " - " +
                     currentSinglesDoubles + " - " +
-                    currentGameSets + " - " +
-                    currentGameScoreAB + " - " +
-                    currentAggregateScore + "\n");
+                    currentGameSets + "\n");
 
 
         } finally
